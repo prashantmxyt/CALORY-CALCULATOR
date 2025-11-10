@@ -1,60 +1,81 @@
 # CALORY-CALCULATOR
-import datetime
-print("Welcome to the Calorie Tracker!")
-print("This program helps you log meals and track calories.\n")
+Calorie Tracker
+A simple Python program that helps you log meals and track your daily calorie intake. This interactive tool allows you to monitor your eating habits and stay within your daily calorie limits.
 
-# ---------- Task 2: Input & Data Collection ----------
-meals = 
-calories = []
+Features
+Meal Logging: Enter multiple meals with their calorie counts
+Calorie Calculations: Automatically calculates total and average calories
+Daily Limit Monitoring: Set a daily calorie limit and get warnings if exceeded
+Formatted Reports: View a neatly organized summary of your meals
+File Export: Save your calorie tracking session to a text file
+Requirements
+Python 3.x
+No external dependencies required (uses only built-in Python modules)
+Installation
+Download the calcul.py file
+Make sure you have Python installed on your system
+No additional installation steps required
+Usage
+Run the program from your terminal or command prompt:
 
-num_meals = int(input("How many meals do you want to enter? "))
+python calcul.py
+Program Flow
+Welcome Message: The program greets you and explains its purpose
+Meal Entry:
+Enter the number of meals you want to log
+For each meal, provide the meal name and calorie count
+Daily Limit: Set your daily calorie limit
+Summary Display: View a formatted table showing:
+All meals with their calories
+Total calories consumed
+Average calories per meal
+Status message (within limit or exceeded)
+Optional File Save: Choose to save the report to calorie_log.txt
+Example Session
+Welcome to the Calorie Tracker!
+This program helps you log meals and track calories.
 
-for i in range(num_meals):
-    meal_name = input(f"Enter meal {i+1} name: ")
-    meal_cal = float(input(f"Enter calories for {meal_name}: "))
-    meals.append(meal_name)
-    calories.append(meal_cal)
+How many meals do you want to enter? 3
+Enter meal 1 name: Breakfast
+Enter calories for Breakfast: 350
+Enter meal 2 name: Lunch
+Enter calories for Lunch: 550
+Enter meal 3 name: Dinner
+Enter calories for Dinner: 650
 
-# ---------- Task 3: Calorie Calculations ----------
-total_cal = sum(calories)
-avg_cal = total_cal / len(calories)
+Enter your daily calorie limit: 2000
 
-daily_limit = float(input("\nEnter your daily calorie limit: "))
+--- Calorie Summary ---
+Meal Name      Calories  
+-------------------------
+Breakfast      350.00    
+Lunch          550.00    
+Dinner         650.00    
+-------------------------
+Total          1550.00   
+Average        516.67    
+✅ Good job! You're within your daily calorie limit.
 
-# ---------- Task 4: Exceed Limit Warning System ----------
-if total_cal > daily_limit:
-    status_msg = "⚠ Warning: You exceeded your daily calorie limit!"
-else:
-    status_msg = "✅ Good job! You're within your daily calorie limit."
+Do you want to save this report to a file? (yes/no): yes
 
-# ---------- Task 5: Neatly Formatted Output ----------
-print("\n--- Calorie Summary ---")
-print(f"{'Meal Name':<15}{'Calories':<10}")
-print("-" * 25)
+✅ Report saved to calorie_log.txt
+Output Files
+When you choose to save your session, the program creates a calorie_log.txt file containing:
 
-for meal, cal in zip(meals, calories):
-    print(f"{meal:<15}{cal:<10.2f}")
+Current date and time
+Complete meal summary table
+Total and average calories
+Daily limit status
+Status Messages
+✅ Within Limit: "Good job! You're within your daily calorie limit."
+⚠️ Exceeded Limit: "Warning: You exceeded your daily calorie limit!"
+Tips
+Enter accurate calorie counts for better tracking
+Set realistic daily calorie limits based on your health goals
+Save your reports to track progress over multiple sessions
+Use decimal numbers for precise calorie entries (e.g., 125.5)
+License
+This project is open source and available for personal use and modification.
 
-print("-" * 25)
-print(f"{'Total':<15}{total_cal:<10.2f}")
-print(f"{'Average':<15}{avg_cal:<10.2f}")
-print(status_msg)
-
-# ---------- Task 6 (Bonus): Save Session Log to File ----------
-save = input("\nDo you want to save this report to a file? (yes/no): ").strip().lower()
-
-if save == "yes":
-    filename = "calorie_log.txt"
-    with open(filename, "w") as f:
-        f.write("Calorie Tracker Report\n")
-        f.write(f"Date: {datetime.datetime.now()}\n\n")
-        f.write(f"{'Meal Name':<15}{'Calories':<10}\n")
-        f.write("-" * 25 + "\n")
-        for meal, cal in zip(meals, calories):
-            f.write(f"{meal:<15}{cal:<10.2f}\n")
-        f.write("-" * 25 + "\n")
-        f.write(f"{'Total':<15}{total_cal:<10.2f}\n")
-        f.write(f"{'Average':<15}{avg_cal:<10.2f}\n")
-        f.write(status_msg + "\n")
-
-    print(f"\n✅ Report saved to {filename}")
+Contributing
+Feel free to fork this project and submit improvements or bug fixes!
