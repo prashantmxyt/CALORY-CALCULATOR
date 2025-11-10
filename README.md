@@ -4,7 +4,7 @@ print("Welcome to the Calorie Tracker!")
 print("This program helps you log meals and track calories.\n")
 
 # ---------- Task 2: Input & Data Collection ----------
-meals = []
+meals = 
 calories = []
 
 num_meals = int(input("How many meals do you want to enter? "))
